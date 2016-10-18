@@ -3,7 +3,7 @@ var keyPress = {
   13: "<br>",
   //8:""
 };
-var letterConversion = {
+var echoEncode = {
   64:"z",
   65:"a",
   66:"b",
@@ -34,7 +34,7 @@ var letterConversion = {
 };
 
 //heiroglyphics
-var hConversion = {
+var hEncode = {
 65:"<img src='images/h/a.gif'>",
 66:"<img src='images/h/b.gif'>",
 67:"<img src='images/h/c.gif'>",
@@ -65,7 +65,7 @@ var hConversion = {
 }
 
 //runes
-var rConversion = {
+var rEncode = {
 65:"<img src='images/r/a.gif'>",
 66:"<img src='images/r/b.gif'>",
 67:"<img src='images/r/c.gif'>",
@@ -109,22 +109,34 @@ $("input[type='radio']").click(function() {
   $("#inputArea").keydown(function(e) {
 
 if ($("input:checked").val() == "ceasarCypher") {
-    $("#textArea").append(letterConversion[e.keyCode - 1]);
+    $("#textArea").append(echoEncode[e.keyCode - 1]);
   }
 
  else if( $("input:checked").val() == "heiroglyphics") {
-      $("#textArea").append(hConversion[e.keyCode]);
+      $("#textArea").append(hEncode[e.keyCode]);
   }
 
  else if ( $("input:checked").val() == "runes") {
-      $("#textArea").append(rConversion[e.keyCode]);
+      $("#textArea").append(rEncode[e.keyCode]);
  }
 
  else {
-     $("#textArea").append(letterConversion[e.keyCode]);
+     $("#textArea").append(echoEncode[e.keyCode]);
  }
 });
 
 //decode
-//var messageToDecode = $("#inputArea");
-//var messageArray = messageToDecode.split("");
+
+$(document).keydown(function(enter) {
+  if (enter.keyCode == 13 ) {
+    decode()
+  }
+});
+
+function decode() {
+  var messageToDecode = $("#translationInputArea").val()
+  var messageArray = messageToDecode.split("")
+for (var i = 0; i < messageArray.length; i++) {
+  $("#translationArea").append(echoEncode[messageArray[i].charCodeAt(0) + 1])
+}
+};
