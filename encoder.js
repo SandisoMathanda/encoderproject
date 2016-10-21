@@ -127,16 +127,17 @@ if ($("input:checked").val() == "ceasarCypher") {
 
 //decode
 
-$(document).keydown(function(enter) {
+$("#translationInputText").keydown(function(enter) {
   if (enter.keyCode == 13 ) {
     decode()
   }
 });
 
 function decode() {
-  var messageToDecode = $("#translationInputArea").val()
+  var messageToDecode = $("#translationInputText").val();
   var messageArray = messageToDecode.split("")
 for (var i = 0; i < messageArray.length; i++) {
-  $("#translationArea").append(echoEncode[messageArray[i].charCodeAt(0) + 1])
+  $("#translationArea").append(echoEncode[messageArray[i].charCodeAt(0) -31])
 }
+//var translateNumber = messageArray[i].charCodeAt(0) - 32
 };
