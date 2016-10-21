@@ -30,7 +30,8 @@ var echoEncode = {
   87:"w",
   88:"x",
   89:"y",
-  90:"z"
+  90:"z",
+  91:"a"
 };
 
 //heiroglyphics
