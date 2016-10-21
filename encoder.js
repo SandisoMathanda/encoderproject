@@ -3,6 +3,8 @@ var keyPress = {
   13: "<br>",
   //8:""
 };
+
+// echo and caeser cipher
 var echoEncode = {
   64:"z",
   65:"a",
@@ -63,7 +65,7 @@ var hEncode = {
 89:"<img src='images/h/y.gif'>",
 90:"<img src='images/h/z.gif'>"
 
-}
+};
 
 //runes
 var rEncode = {
@@ -93,7 +95,7 @@ var rEncode = {
 88:"<img src='images/r/x.gif'>",
 89:"<img src='images/r/y.gif'>",
 90:"<img src='images/r/z.gif'>"
-}
+};
 
 //choose language
 $("input[type='radio']").click(function() {
@@ -135,10 +137,10 @@ $("#translationInputText").keydown(function(enter) {
 });
 
 function decode() {
+  if ($("input:checked").val() == "ceasarCypher") {
   var messageToDecode = $("#translationInputText").val();
   var messageArray = messageToDecode.split("")
 for (var i = 0; i < messageArray.length; i++) {
   $("#translationArea").append(echoEncode[messageArray[i].charCodeAt(0) -31])
-}
-//var translateNumber = messageArray[i].charCodeAt(0) - 32
+}}
 };
