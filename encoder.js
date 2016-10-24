@@ -1,3 +1,4 @@
+// some ohter values
 var keyPress = {
   32: " ",
   13: "<br>",
